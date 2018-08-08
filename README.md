@@ -5,7 +5,7 @@ major one according to Laravel versionning (paradigm.major.minor).
  
 [![Build Status](https://travis-ci.org/kylekatarnls/carbon-laravel.svg?branch=master)](https://travis-ci.org/kylekatarnls/carbon-laravel)
 
-## Carbon 1 (dev-master)
+## Carbon 1 (dev-version-1.next)
 
 |PHP|Laravel|
 |---|-------|
@@ -16,7 +16,7 @@ major one according to Laravel versionning (paradigm.major.minor).
 |7.1|5.0 ➡ 5.8|
 |7.2|5.0 ➡ 5.8|
 
-## Carbon 2 (dev-version-2.0)
+## Carbon 2 (dev-master)
 
 |PHP|Laravel|
 |---|-------|
