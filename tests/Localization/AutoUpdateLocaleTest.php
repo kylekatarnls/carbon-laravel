@@ -9,8 +9,8 @@ class AutoUpdateLocaleTest extends TestCase
 {
     public function testAutoUpdateLocale()
     {
-        self::assertSame('1 year ago', Carbon::now()->subYear()->diffForHumans());
+        self::assertSame('2 years ago', Carbon::now()->subYears(2)->diffForHumans());
         app()->setLocale('fr');
-        self::assertSame('il y a 1 an', Carbon::now()->subYear()->diffForHumans());
+        self::assertSame('il y a 2 ans', Carbon::now()->subYears(2)->diffForHumans());
     }
 }
