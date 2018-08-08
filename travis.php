@@ -16,11 +16,12 @@ $laravelVersions = [
     '5.4',
     '5.5',
     '5.6',
-    'dev-master' => '5.7',
+    '5.7.x-dev' => '5.7',
+    'dev-master' => '5.8',
 ];
 $carbonVersions = [
+    'dev-version-1.next',
     'dev-master',
-    'dev-version-2.0',
 ];
 
 $laravelPackages = json_decode(file_get_contents('https://packagist.org/p/laravel/framework.json'), true)['packages']['laravel/framework'];
@@ -56,7 +57,7 @@ foreach ($phpVersions as $phpVersion) {
         }
 
         foreach ($carbonVersions as $index => $carbonVersion) {
-            if ($carbonVersion === 'dev-version-2.0' && (version_compare($phpVersion, '7.1', '<') || version_compare($laravelVersion, '5.6', '<'))) {
+            if ($carbonVersion === 'dev-master' && (version_compare($phpVersion, '7.1', '<') || version_compare($laravelVersion, '5.6', '<'))) {
                 continue;
             }
 
