@@ -15,4 +15,9 @@ class MacroTest extends TestCase
         self::assertSame('foo', Carbon::verbatim('foo'));
         self::assertSame('bar', Carbon::now()->verbatim('bar'));
     }
+
+    public function testDynamicCalls()
+    {
+        self::assertSame(3, Carbon::now()->addMinutes(3)->diffInMinutes());
+    }
 }
