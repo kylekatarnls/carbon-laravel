@@ -19,6 +19,6 @@ class MacroTest extends TestCase
     public function testDynamicCalls()
     {
         $now = Carbon::now();
-        self::assertSame(3, $now->addMinutes(3)->diffInMinutes($now));
+        self::assertSame(3, $now->copy()->addMinutes(3)->diffInMinutes($now));
     }
 }
