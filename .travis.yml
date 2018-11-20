@@ -66,7 +66,7 @@ matrix:
     - php: 7.0
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
-        - LARAVEL_VERSION='"5.5.41"'
+        - LARAVEL_VERSION='"5.5.44"'
     - php: 7.1
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
@@ -90,15 +90,15 @@ matrix:
     - php: 7.1
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
-        - LARAVEL_VERSION='"5.5.41"'
+        - LARAVEL_VERSION='"5.5.44"'
     - php: 7.1
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
-        - LARAVEL_VERSION='"5.6.29"'
+        - LARAVEL_VERSION='"5.6.39"'
     - php: 7.1
       env:
         - CARBON_VERSION='"dev-master as 1.25.0"'
-        - LARAVEL_VERSION='"5.6.29"'
+        - LARAVEL_VERSION='"5.6.39"'
     - php: 7.1
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.27.0"'
@@ -139,15 +139,15 @@ matrix:
     - php: 7.2
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
-        - LARAVEL_VERSION='"5.5.41"'
+        - LARAVEL_VERSION='"5.5.44"'
     - php: 7.2
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
-        - LARAVEL_VERSION='"5.6.29"'
+        - LARAVEL_VERSION='"5.6.39"'
     - php: 7.2
       env:
         - CARBON_VERSION='"dev-master as 1.25.0"'
-        - LARAVEL_VERSION='"5.6.29"'
+        - LARAVEL_VERSION='"5.6.39"'
     - php: 7.2
       env:
         - CARBON_VERSION='"dev-version-1.next as 1.27.0"'
@@ -161,6 +161,55 @@ matrix:
         - CARBON_VERSION='"dev-version-1.next as 1.27.0"'
         - LARAVEL_VERSION='"dev-master as 5.8"'
     - php: 7.2
+      env:
+        - CARBON_VERSION='"dev-master as 1.27.0"'
+        - LARAVEL_VERSION='"dev-master as 5.8"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - LARAVEL_VERSION='"5.0.35"'
+        - COMPOSER_PLATFORM_REQS='--ignore-platform-reqs'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - LARAVEL_VERSION='"5.1.46"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - LARAVEL_VERSION='"5.2.45"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - LARAVEL_VERSION='"5.3.31"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - LARAVEL_VERSION='"5.4.36"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - LARAVEL_VERSION='"5.5.44"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - LARAVEL_VERSION='"5.6.39"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-master as 1.25.0"'
+        - LARAVEL_VERSION='"5.6.39"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.27.0"'
+        - LARAVEL_VERSION='"5.7.x-dev as 5.7"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-master as 1.27.0"'
+        - LARAVEL_VERSION='"5.7.x-dev as 5.7"'
+    - php: 7.3
+      env:
+        - CARBON_VERSION='"dev-version-1.next as 1.27.0"'
+        - LARAVEL_VERSION='"dev-master as 5.8"'
+    - php: 7.3
       env:
         - CARBON_VERSION='"dev-master as 1.27.0"'
         - LARAVEL_VERSION='"dev-master as 5.8"'

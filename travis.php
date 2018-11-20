@@ -7,6 +7,7 @@ $phpVersions = [
     '7.0',
     '7.1',
     '7.2',
+    '7.3',
 ];
 $laravelVersions = [
     '5.0',
