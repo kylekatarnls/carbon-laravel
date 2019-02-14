@@ -67,7 +67,9 @@ foreach ($phpVersions as $phpVersion) {
             }
             $tableCarbon[$index][$phpVersion][] = $laravelVersion;
 
-            $carbon = "$carbonVersion as ".(version_compare($laravelVersion, '5.7', '<') ? '1.25.0' : '1.27.0');
+            $aliasVersion = str_replace('*', '0', ltrim(preg_split('/(\s|\|)/', $package['require']['nesbot/carbon'])[0], '~^>='));
+
+            $carbon = "$carbonVersion as $aliasVersion";
             $matrix .= "
     - php: $phpVersion
       env:
@@ -119,7 +121,8 @@ $readme = preg_replace_callback('/(\|PHP\|Laravel\|\n\|---\|-------\|\n)([\s\S]+
     $index++;
     $table = '';
     foreach ($tableCarbon[$index] as $php => $laravel) {
-        $isRange = count($laravel) > 2 && array_reduce($laravel, function ($previous, $next) {
+        $count = count($laravel);
+        $isRange = $count === 2 || $count > 2 && array_reduce($laravel, function ($previous, $next) {
             if ($previous === null || (int) round(($next - $previous) * 10) === 1) {
                 return $next;
             }
