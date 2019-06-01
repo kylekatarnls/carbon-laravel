@@ -17,12 +17,13 @@ $laravelVersions = [
     '5.4',
     '5.5',
     '5.6',
-    '5.7.x-dev' => '5.7',
-    'dev-master' => '5.8',
+    '5.7',
+    '5.8',
+    'dev-master' => '5.9',
 ];
 $carbonVersions = [
-    'dev-version-1.next',
-    'dev-master',
+    'dev-version-1.next' => '5.9',
+    'dev-master' => '9999.9999',
 ];
 
 $laravelPackages = json_decode(file_get_contents('https://packagist.org/p/laravel/framework.json'), true)['packages']['laravel/framework'];
@@ -57,8 +58,14 @@ foreach ($phpVersions as $phpVersion) {
             continue;
         }
 
-        foreach ($carbonVersions as $index => $carbonVersion) {
+        $index = 0;
+
+        foreach ($carbonVersions as $carbonVersion => $supportDrop) {
             if ($carbonVersion === 'dev-master' && (version_compare($phpVersion, '7.1', '<') || version_compare($laravelVersion, '5.6', '<'))) {
+                continue;
+            }
+
+            if (version_compare($laravelVersion, $supportDrop, '>=')) {
                 continue;
             }
 
@@ -80,6 +87,7 @@ foreach ($phpVersions as $phpVersion) {
         - COMPOSER_PLATFORM_REQS='--ignore-platform-reqs'";
             }
             $count++;
+            $index++;
         }
     }
 }
@@ -140,6 +148,6 @@ if (!file_put_contents(__DIR__.'/README.md', $readme)) {
     exit(1);
 }
 
-echo "README.md update.\n",
+echo "README.md updated.\n",
 exit(0);
 
