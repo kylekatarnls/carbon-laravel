@@ -58,20 +58,19 @@ foreach ($phpVersions as $phpVersion) {
             continue;
         }
 
-        $index = 0;
-
-        foreach ($carbonVersions as $carbonVersion => $supportDrop) {
+        foreach (array_keys($carbonVersions) as $index => $carbonVersion) {
             if ($carbonVersion === 'dev-master' && (version_compare($phpVersion, '7.1', '<') || version_compare($laravelVersion, '5.6', '<'))) {
                 continue;
             }
 
-            if (version_compare($laravelVersion, $supportDrop, '>=')) {
+            if (version_compare($laravelVersion, $carbonVersions[$carbonVersion], '>=')) {
                 continue;
             }
 
             if (!isset($tableCarbon[$index][$phpVersion])) {
                 $tableCarbon[$index][$phpVersion] = [];
             }
+
             $tableCarbon[$index][$phpVersion][] = $laravelVersion;
 
             $aliasVersion = str_replace('*', '0', ltrim(preg_split('/(\s|\|)/', $package['require']['nesbot/carbon'])[0], '~^>='));
@@ -87,7 +86,6 @@ foreach ($phpVersions as $phpVersion) {
         - COMPOSER_PLATFORM_REQS='--ignore-platform-reqs'";
             }
             $count++;
-            $index++;
         }
     }
 }
