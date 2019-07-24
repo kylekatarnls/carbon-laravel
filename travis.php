@@ -76,8 +76,9 @@ foreach ($phpVersions as $phpVersion) {
             $aliasVersion = str_replace('*', '0', ltrim(preg_split('/(\s|\|)/', $package['require']['nesbot/carbon'])[0], '~^>='));
 
             $carbon = "$carbonVersion as $aliasVersion";
+            $dist = version_compare($phpVersion, '5.6', '<') ? "\n      dist: trusty" : '';
             $matrix .= "
-    - php: $phpVersion
+    - php: $phpVersion$dist
       env:
         - CARBON_VERSION='\"$carbon\"'
         - LARAVEL_VERSION='\"$laravel\"'";
