@@ -17,6 +17,10 @@ class AutoUpdateLocaleTest extends TestCase
 
     public function testAutoUpdateLocaleCarbonImmutable()
     {
+        if (!class_exists(CarbonImmutable::class)) {
+            $this->markTestSkipped('CarbonImmutable is version 2 only.');
+        }
+
         self::assertSame('2 years ago', CarbonImmutable::now()->subYears(2)->diffForHumans());
         app()->setLocale('fr');
         self::assertSame('il y a 2 ans', CarbonImmutable::now()->subYears(2)->diffForHumans());
