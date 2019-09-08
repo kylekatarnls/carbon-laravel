@@ -9,6 +9,8 @@ class JsonTest extends TestCase
 {
     public function testJsonEncoding()
     {
-        self::assertSame('1 year ago', Carbon::__set_state(json_decode(json_encode(Carbon::now()->subYear()), true))->diffForHumans());
+        $json = json_encode(Carbon::now()->subYear());
+        $data = json_decode($json, true);
+        self::assertSame('1 year ago', Carbon::__set_state($data)->diffForHumans(), "Set from JSON failed for $json");
     }
 }
