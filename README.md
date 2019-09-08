@@ -16,14 +16,16 @@ major one according to Laravel versionning (paradigm.major.minor).
 |7.1|5.0 ➡ 5.8|
 |7.2|5.0 ➡ 5.8|
 |7.3|5.0 ➡ 5.8|
+|7.4|5.0 ➡ 5.8|
 
 ## Carbon 2 (dev-master)
 
 |PHP|Laravel|
 |---|-------|
 |7.1|5.6 ➡ 5.8|
-|7.2|5.6 ➡ 5.9|
-|7.3|5.6 ➡ 5.9|
+|7.2|5.6 ➡ 7.0|
+|7.3|5.6 ➡ 7.0|
+|7.4|5.6 ➡ 7.0|
 
 ## Tested features
 
