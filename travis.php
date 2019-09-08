@@ -1,5 +1,7 @@
 <?php
 
+$minimumTravisPhpVersion = '7.0';
+$minimumTravisLaravelVersion = '5.6';
 $phpVersions = [
     '5.4',
     '5.5',
@@ -8,6 +10,7 @@ $phpVersions = [
     '7.1',
     '7.2',
     '7.3',
+    '7.4snapshot',
 ];
 $laravelVersions = [
     '5.0',
@@ -19,7 +22,8 @@ $laravelVersions = [
     '5.6',
     '5.7',
     '5.8',
-    'dev-master' => '5.9',
+    '6.0',
+    'dev-master' => '7.0',
 ];
 $carbonVersions = [
     'dev-version-1.next' => '5.9',
@@ -77,16 +81,19 @@ foreach ($phpVersions as $phpVersion) {
 
             $carbon = "$carbonVersion as $aliasVersion";
             $dist = version_compare($phpVersion, '5.6', '<') ? "\n      dist: trusty" : '';
-            $matrix .= "
+
+            if (version_compare($phpVersion, $minimumTravisPhpVersion, '>=') && version_compare($laravelVersion, $minimumTravisLaravelVersion, '>=')) {
+                $matrix .= "
     - php: $phpVersion$dist
       env:
         - CARBON_VERSION='\"$carbon\"'
         - LARAVEL_VERSION='\"$laravel\"'";
-            if (version_compare($phpVersion, '7.2', '>=') && version_compare($laravelVersion, '5.1', '<')) {
-                $matrix .= "
+                if (version_compare($phpVersion, '7.2', '>=') && version_compare($laravelVersion, '5.1', '<')) {
+                    $matrix .= "
         - COMPOSER_PLATFORM_REQS='--ignore-platform-reqs'";
+                }
+                $count++;
             }
-            $count++;
         }
     }
 }
@@ -130,12 +137,13 @@ $readme = preg_replace_callback('/(\|PHP\|Laravel\|\n\|---\|-------\|\n)([\s\S]+
     foreach ($tableCarbon[$index] as $php => $laravel) {
         $count = count($laravel);
         $isRange = $count === 2 || $count > 2 && array_reduce($laravel, function ($previous, $next) {
-            if ($previous === null || (int) round(($next - $previous) * 10) === 1) {
+            if ($previous === null || preg_match('/\.0$/', strval($next)) || (int) round(($next - $previous) * 10) === 1) {
                 return $next;
             }
 
             return false;
         }, null);
+        $php = str_replace('snapshot', '', $php);
         $table .= "|$php|".($isRange ? $laravel[0].' ➡ '.end($laravel) : implode(', ', $laravel))."|\n";
     }
 
