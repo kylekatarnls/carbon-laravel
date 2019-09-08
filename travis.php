@@ -1,5 +1,7 @@
 <?php
 
+$minimumTravisPhpVersion = '7.0';
+$minimumTravisLaravelVersion = '5.6';
 $phpVersions = [
     '5.4',
     '5.5',
@@ -79,16 +81,19 @@ foreach ($phpVersions as $phpVersion) {
 
             $carbon = "$carbonVersion as $aliasVersion";
             $dist = version_compare($phpVersion, '5.6', '<') ? "\n      dist: trusty" : '';
-            $matrix .= "
+
+            if (version_compare($phpVersion, $minimumTravisPhpVersion, '>=') && version_compare($laravelVersion, $minimumTravisLaravelVersion, '>=')) {
+                $matrix .= "
     - php: $phpVersion$dist
       env:
         - CARBON_VERSION='\"$carbon\"'
         - LARAVEL_VERSION='\"$laravel\"'";
-            if (version_compare($phpVersion, '7.2', '>=') && version_compare($laravelVersion, '5.1', '<')) {
-                $matrix .= "
+                if (version_compare($phpVersion, '7.2', '>=') && version_compare($laravelVersion, '5.1', '<')) {
+                    $matrix .= "
         - COMPOSER_PLATFORM_REQS='--ignore-platform-reqs'";
+                }
+                $count++;
             }
-            $count++;
         }
     }
 }
