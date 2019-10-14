@@ -81,6 +81,13 @@ foreach ($phpVersions as $phpVersion) {
 
             $carbon = "$carbonVersion as $aliasVersion";
             $dist = version_compare($phpVersion, '5.6', '<') ? "\n      dist: trusty" : '';
+            $laravel = preg_replace('/(\d\.\d+\.)\d+$/', '$1*', $laravel);
+
+            // Laravel team won't fix broken install of Laravel 5.7
+            // https://github.com/laravel/framework/issues/30257
+            if ($laravel === '5.7.*') {
+                continue;
+            }
 
             if (version_compare($phpVersion, $minimumTravisPhpVersion, '>=') && version_compare($laravelVersion, $minimumTravisLaravelVersion, '>=')) {
                 $matrix .= "
