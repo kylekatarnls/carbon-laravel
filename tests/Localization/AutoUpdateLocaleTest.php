@@ -25,8 +25,8 @@ class AutoUpdateLocaleTest extends TestCase
             $this->markTestSkipped('CarbonImmutable is version 2 only.');
         }
 
-        if (Carbon::now()->format('m-d') === '02-29') {
-            Carbon::setTestNow('-1 day');
+        if (CarbonImmutable::now()->format('m-d') === '02-29') {
+            CarbonImmutable::setTestNow('-1 day');
         }
 
         self::assertSame('2 years ago', CarbonImmutable::now()->subYears(2)->diffForHumans());
