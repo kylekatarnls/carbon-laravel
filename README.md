@@ -23,9 +23,9 @@ major one according to Laravel versionning (paradigm.major.minor).
 |PHP|Laravel|
 |---|-------|
 |7.1|5.6 ➡ 5.8|
-|7.2|5.6 ➡ 7.0|
-|7.3|5.6 ➡ 7.0|
-|7.4|5.6 ➡ 7.0|
+|7.2|5.6 ➡ 7.9|
+|7.3|5.6 ➡ 8.0|
+|7.4|5.6 ➡ 8.0|
 
 ## Tested features
 
