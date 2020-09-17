@@ -26,7 +26,7 @@ $laravelVersions = [
     'dev-master' => '7.0',
 ];
 $carbonVersions = [
-    'dev-version-1.next' => '5.9',
+    '1.39.1' => '5.9',
     'dev-master' => '9999.9999',
 ];
 

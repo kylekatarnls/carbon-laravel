@@ -9,7 +9,7 @@ matrix:
   include:
     - php: 7.1
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - CARBON_VERSION='"1.39.1 as 1.25.0"'
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.1
       env:
@@ -17,7 +17,7 @@ matrix:
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.1
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.26.3"'
+        - CARBON_VERSION='"1.39.1 as 1.26.3"'
         - LARAVEL_VERSION='"5.8.*"'
     - php: 7.1
       env:
@@ -25,7 +25,7 @@ matrix:
         - LARAVEL_VERSION='"5.8.*"'
     - php: 7.2
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - CARBON_VERSION='"1.39.1 as 1.25.0"'
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.2
       env:
@@ -33,7 +33,7 @@ matrix:
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.2
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.26.3"'
+        - CARBON_VERSION='"1.39.1 as 1.26.3"'
         - LARAVEL_VERSION='"5.8.*"'
     - php: 7.2
       env:
@@ -49,7 +49,7 @@ matrix:
         - LARAVEL_VERSION='"dev-master as 7.0"'
     - php: 7.3
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - CARBON_VERSION='"1.39.1 as 1.25.0"'
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.3
       env:
@@ -57,7 +57,7 @@ matrix:
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.3
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.26.3"'
+        - CARBON_VERSION='"1.39.1 as 1.26.3"'
         - LARAVEL_VERSION='"5.8.*"'
     - php: 7.3
       env:
@@ -73,7 +73,7 @@ matrix:
         - LARAVEL_VERSION='"dev-master as 7.0"'
     - php: 7.4snapshot
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.25.0"'
+        - CARBON_VERSION='"1.39.1 as 1.25.0"'
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.4snapshot
       env:
@@ -81,7 +81,7 @@ matrix:
         - LARAVEL_VERSION='"5.6.*"'
     - php: 7.4snapshot
       env:
-        - CARBON_VERSION='"dev-version-1.next as 1.26.3"'
+        - CARBON_VERSION='"1.39.1 as 1.26.3"'
         - LARAVEL_VERSION='"5.8.*"'
     - php: 7.4snapshot
       env:
