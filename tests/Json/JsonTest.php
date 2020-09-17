@@ -16,6 +16,10 @@ class JsonTest extends TestCase
             });
         }
 
+        if (Carbon::now()->format('m-d') === '02-29') {
+            Carbon::setTestNow('-1 day');
+        }
+
         $json = json_encode(Carbon::now()->subYear());
         $data = json_decode($json, true);
         self::assertSame('1 year ago', Carbon::__set_state($data)->diffForHumans(), "Set from JSON failed for $json");

@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "dev",
     "require": {
         "laravel\/framework": "5.8",
         "nesbot\/carbon": "dev-master as 2.23.0"
